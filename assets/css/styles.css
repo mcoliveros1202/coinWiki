@@ -1,10 +1,66 @@
 main {
     margin: 2rem;
-    
+
 }
 
 .card {
     max-width: 15rem;
     padding: 2rem 2.5rem 2.5rem 2rem;
     margin: 2rem;
+}
+
+.container {
+    margin: 0 0 0 15rem;
+}
+
+header {
+    padding-left: 3rem;
+    background-image: linear-gradient(to right, #264653, #2A9D8F);
+}
+
+header h1 {
+    font-size: 4rem;
+    padding-top: 1rem;
+    color: white;
+}
+
+.cc {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start !important;
+    flex-wrap: wrap !important;
+}
+
+.cr {
+    padding: 4px;
+}
+
+@media screen and (max-width: 1980px) {
+    .cr {
+        flex-basis: 10%;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    .cr {
+        flex-basis: 14.2%;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .cr {
+        flex-basis: 20%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .cr {
+        flex-basis: 33.3%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .cr {
+        flex-basis: 50%;
+    }
 }
