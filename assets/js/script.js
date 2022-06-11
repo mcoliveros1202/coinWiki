@@ -56,7 +56,8 @@ function costOfLivingApi(jobLocation) {
             response.json()
                 .then(function (data) {
                     console.log(data.cities);
-                  //need to find  costOfLiving = data.cities.??
+                    jobLocation = data.city
+                  //need to find  costOfLiving = data.???
             })
         })
     return;
