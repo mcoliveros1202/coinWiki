@@ -20,90 +20,86 @@
                 <h1>Job Board</h1>
             </div>
             <!-- search for a job -->
-            <div class="col s9">
+            <div class="col s7">
                 <div class="container">
                     <form class="row section" id="searchForm">
-                        <div class="col s4 inputBox" style="padding-top: 2rem;">
-                            <input type="search" name="search" class="formInput" id="searchTitle" placeholder="Job Title">
-                        </div>
-                        <div class="col s3 inputBox" style="padding-top: 2rem;">
-                            <input type="search" name="search" class="formInput" id="searchLocation" placeholder="Location">
-                        </div>
-                        <!-- <div class="col s2" style="padding-top: 3rem; padding-right: 2.5rem;">
-                            <label>
-                                <input type="checkbox" class="formInput" id="check">
-                                <label style="color: white;" for="check">Remote</label>
-                            </label>
-                        </div> -->
-                        <div class="col s3" style="padding-top: 2.5rem;">
-                            <button type="submit" class="col s12 btn">Search</button>
-                        </div>
+
+                        <input type="search" name="search" class="form-control col s4"
+                            style="padding-top: 2rem; margin-right: 2rem;" id="searchInput" placeholder="Search">
+                        <button type="submit" class="col s3 btn" id="mySearchButton"
+                            style="padding-top: 2.5rem; margin-top: 2.5rem;">Search</button>
                     </form>
                 </div>
+            </div>
+            <div class="col s2" id="previousSearches">
+
             </div>
         </div>
 
     </header>
     <!-- job information -->
     <main>
-        <div class="row cc section valign-wrapper left-align" id="jobResultsContainer">
+        <div class="row cc section valign-wrapper left-align" id="myContentContainer">
             <!-- the following cards are for styling purposes, will delete to create in js instead -->
-            <div class="card cr col s3 hoverable">
-                <h3>Job Title</h3>
-                <h4>Company</h4>
-                <p>Location</p>
-                <p>Remote Status</p>
+            <div class="card cr col s5 hoverable">
+                <img id="icon"></img>
+                <h3>$<span id="coinPrice"></span></h3>
+                <h4 id="coinName"></h4>
+                <h5 id="coinSymbol"></h5>
+                <p id="description"></p>
+
             </div>
-            <div class="card cr col s3 hoverable">
-                <h3 class="">Job Title</h3>
-                <h4 class="">Company
-                </h4>
-                <p class="">Location</p>
-                <p class="">Remote Status</p>
-            </div>
-            <div class="card cr col s3 hoverable">
-                <h3 class="">Job Title</h3>
-                <h4 class="">Company
-                </h4>
-                <p class="">Location</p>
-                <p class="">Remote Status</p>
-            </div>
-            <div class="card cr col s3 hoverable">
-                <h3 class="">Job Title</h3>
-                <h4 class="">Company
-                </h4>
-                <p class="">Location</p>
-                <p class="">Remote Status</p>
-            </div>
-            <div class="card cr col s3 hoverable">
-                <h3 class="">Job Title</h3>
-                <h4 class="">Company
-                </h4>
-                <p class="">Location</p>
-                <p class="">Remote Status</p>
-            </div>
-            <div class="card cr col s3 hoverable">
-                <h3 class="">Job Title</h3>
-                <h4 class="">Company
-                </h4>
-                <p class="">Location</p>
-                <p class="">Remote Status</p>
-            </div>
-            <div class="card cr col s3 hoverable">
-                <h3 class="">Job Title</h3>
-                <h4 class="">Company
-                </h4>
-                <p class="">Location</p>
-                <p class="">Remote Status</p>
-            </div>
-            <div class="card cr col s3 hoverable">
-                <h3 class="">Job Title</h3>
-                <h4 class="">Company
-                </h4>
-                <p class="">Location</p>
-                <p class="">Remote Status</p>
-            </div>
+            <!--
+        <div class="card cr col s3 hoverable">
+            <h3 class="">Job Title</h3>
+            <h4 class="">Company
+            </h4>
+            <p class="">Location</p>
+            <p class="">Remote Status</p>
         </div>
+        <div class="card cr col s3 hoverable">
+            <h3 class="">Job Title</h3>
+            <h4 class="">Company
+            </h4>
+            <p class="">Location</p>
+            <p class="">Remote Status</p>
+        </div>
+        <div class="card cr col s3 hoverable">
+            <h3 class="">Job Title</h3>
+            <h4 class="">Company
+            </h4>
+            <p class="">Location</p>
+            <p class="">Remote Status</p>
+        </div>
+        <div class="card cr col s3 hoverable">
+            <h3 class="">Job Title</h3>
+            <h4 class="">Company
+            </h4>
+            <p class="">Location</p>
+            <p class="">Remote Status</p>
+        </div>
+        <div class="card cr col s3 hoverable">
+            <h3 class="">Job Title</h3>
+            <h4 class="">Company
+            </h4>
+            <p class="">Location</p>
+            <p class="">Remote Status</p>
+        </div>
+        <div class="card cr col s3 hoverable">
+            <h3 class="">Job Title</h3>
+            <h4 class="">Company
+            </h4>
+            <p class="">Location</p>
+            <p class="">Remote Status</p>
+        </div>
+        <div class="card cr col s3 hoverable">
+            <h3 class="">Job Title</h3>
+            <h4 class="">Company
+            </h4>
+            <p class="">Location</p>
+            <p class="">Remote Status</p>
+        </div>
+        </div> -->
     </main>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>

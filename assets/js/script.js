@@ -1,65 +1,94 @@
-
-// const myForm = document.getElementById("searchForm");
-
-var searchTitleEl = $("#searchTitle");
-var searchLocationEl = $("#searchLocation");
-
-
-/* myForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    var input = Array.from(document.querySelectorAll("#searchForm input"));
-    console.log(input);
-});
-*/
+var searchInputEl = $("#searchInput");
+var searchFormEl = $("#searchForm");
+var coinDataContainer = $("#coinContainer");
+var searchHistoryEl = $("#previousSearches");
+// var search = searchInputEl.val();
 
 function searchInput(event) {
     event.preventDefault()
-    jobSearch(searchTitleEl.val(), searchLocationEl.val())
+    coinsListapi(searchInputEl.val())
 }
 
-
-// web app Id for Arbeit Job Board
- var arbeitAppId = "0610c09006msh8a07c384f45f826p19a862jsnfa5a46a43d73";
-
-// fetch requests for arbeit api for location and title
-function jobSearch(jobTitle, jobLocation) {
-    var url = `https://arbeitnow-free-job-board.p.rapidapi.com/api/job-board-api?q=${jobTitle}&${jobLocation}&rapidapi-key=${arbeitAppId}`;
-    fetch(url)
+function coinsListapi(coinName) {
+    fetch("https://api.coingecko.com/api/v3/coins/" + coinName + "?tickers=true&market_data=true&sparkline=true")
         .then(function (response) {
-            console.log(response);
             response.json()
                 .then(function (data) {
-                    console.log(data);
-                    jobTitle = data.title;
-                    jobLocation = data.location;
-                    console.log(data.title);
-                    console.log(data.location);
-                    // costOfLivingApi(data.location);
+                    coinName = data.name;
+                    coinIcon = data.image.small;
+                    coinSymbol = data.symbol;
+                    coinDescription = data.description.en;
+                    // console.log(coinName, coinIcon, coinSymbol, coinDescription);
+                    displayCurrentData(coinName, coinIcon, coinSymbol);
+                    priceData(data.name)
+                    dispSearchHist(coinName)
+
                 })
         });
 
     return;
 }
 
-jobSearch();
-
-
-// requests limited so blocked out until ready to test
-/* var colAppId = "0610c09006msh8a07c384f45f826p19a862jsnfa5a46a43d73";
-
-function costOfLivingApi(jobLocation) {
-    var url = `https://cost-of-living-and-prices.p.rapidapi.com/cities?q=${jobLocation}&rapidapi-key=${colAppId}`;
-
-    fetch(url)
+function priceData() {
+    fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=" + searchInputEl.val())
         .then(function (response) {
             response.json()
                 .then(function (data) {
-                    console.log(data.cities);
-                    jobLocation = data.city
-                  //need to find  costOfLiving = data.???
+                    coinPrice = data[0].current_price;
+                    console.log(coinPrice);
+                    displayCurrentData(data.name, coinIcon, coinSymbol, coinPrice)
             })
-        })
-    return;
+    })
 }
-*/
+
+function displayCurrentData(coinName, coinIcon, coinSymbol, coinPrice) {
+    $("#coinName").html(coinName);// coin name
+    $("#coinPrice").html(coinPrice);// coin price
+    $("#coinSymbol").html(coinSymbol); // coin symbol
+    $("#icon").attr("src", `${coinIcon}`); //icon
+    $("#description").html(coinDescription); //description
+}
+
+function dispSearchHist(coinName, initialStart) {
+    var matchFound = false;
+    $("previousSearches").children("").each(function () {
+        if (coinName == $(this).text()) {
+            matchFound = true;
+            return;
+        }
+    });
+    if (matchFound) { return; }
+
+    var buttonEL = $("<button type='button' class='col 12 btn'>" + coinName + "</button>")
+    buttonEL.on("click", previousButtonClick);
+    buttonEL.prependTo(searchHistoryEl);
+
+    if (!initialStart) { savePreviousData(coinName) };
+}
+
+function savePreviousData(coinName) {
+    tempItem = JSON.parse(localStorage.getItem("previousSearches"))
+    if (tempItem != null) {
+        localStorage.setItem("previousSearches", JSON.stringify(tempItem.concat(coinName)))
+    } else {
+        tempArr = [coinName];
+        localStorage.setItem("previousSearches", JSON.stringify(tempArr))
+    }
+}
+
+function previousButtonClick(event) {
+    coinsListapi(event.target.innerHTML)
+}
+
+function start() {
+    searchFormEl.submit(searchInput)
+    tempArr = JSON.parse(localStorage.getItem("previousSearches"))
+    if (tempArr != null) {
+        for (let i = 0; i < tempArr.length; i++) {
+            dispSearchHist(tempArr[i], true)
+        }
+    
+    }
+}
+
+start()
