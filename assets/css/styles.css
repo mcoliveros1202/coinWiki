@@ -13,9 +13,10 @@ main {
     margin: 0 0 0 15rem;
 }
 
+/* HEADER/SEARCH STYLING START */
 header {
     padding-left: 3rem;
-    background-image: linear-gradient(to right, #264653, #2A9D8F);
+    background-image: linear-gradient(to right, #323c2a, #c1ccb7);
 }
 
 header h1 {
@@ -24,6 +25,57 @@ header h1 {
     color: white;
 }
 
+.btn {
+    background-color: #323c2a;
+    border-radius: 7px;
+}
+
+.btn:hover {
+    background-color: #c1ccb7;
+    color: #272727;
+}
+
+.row .col.s12 {
+    width: 65%;
+}
+
+[type="checkbox"]:checked+label:before {
+    border-right: 2px solid #272727;
+    border-bottom: 2px solid #272727;
+}
+
+input[type=search]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid #c1ccb7;
+    -webkit-box-shadow: 0 1px 0 0 #c1ccb7;
+    box-shadow: 0 1px 0 0 #c1ccb7;
+    color: #ffffff;
+}
+
+/*  HEADER/SEARCH STYLING END */
+
+/* JOB CARD STYLING START */
+
+.card-title {
+    background-color: #323c2a;
+    color: #ffffff;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+.tiny.material-icons {
+    padding-left: 10px;
+}
+.row .col.s3 {
+    width: 25%;
+    left: auto;
+    right: auto;
+}
+
+.card-body {
+    padding-left: 10px;
+}
 .cc {
     display: flex;
     flex-direction: row;
@@ -35,6 +87,12 @@ header h1 {
     padding: 4px;
 }
 
+.card.cr.col.s3.hoverable {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+/* JOB CARD STYLING END */
 @media screen and (max-width: 1980px) {
     .cr {
         flex-basis: 10%;
