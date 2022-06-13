@@ -3,18 +3,20 @@ main {
 
 }
 
- .card {
+.card {
+    max-width: 15rem;
     padding: 2rem 2.5rem 2.5rem 2rem;
     margin: 2rem;
 }
-*
+
 .container {
     margin: 0 0 0 15rem;
 }
 
+/* HEADER/SEARCH STYLING START */
 header {
     padding-left: 3rem;
-    background-image: linear-gradient(to right, #264653, #2A9D8F);
+    background-image: linear-gradient(to right, #021572, #ffffff);
 }
 
 header h1 {
@@ -23,8 +25,68 @@ header h1 {
     color: white;
 }
 
+.btn {
+    background-color: #ffffff;
+    border-radius: 7px;
+    color: #1e1f1f;
+}
+
+.btn:hover {
+    background-color: #021572;
+    color: #ffffff;
+}
+
+.btn:focus {
+    background-color: #ffffff;
+    color: #1e1f1f;
+}
+
+.row .col.s12 {
+    width: 65%;
+}
+
+input[type=search]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid #ffffff;
+    -webkit-box-shadow: 0 1px 0 0 #ffffff;
+    box-shadow: 0 1px 0 0 #ffffff;
+    color: #ffffff;
+}
+
+input[type=search]:not(.browser-default)::after {
+    background-color: transparent;
+}
+
+/*  HEADER/SEARCH STYLING END */
+
+/* JOB CARD STYLING START */
+
+.card-title {
+    background-color: #323c2a;
+    color: #ffffff;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.tiny.material-icons {
+    padding-left: 10px;
+}
+
+.row .col.s3 {
+    width: 25%;
+    left: auto;
+    right: auto;
+}
+
+.card-body {
+    padding-left: 10px;
+}
+
 .cc {
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
     justify-content: flex-start !important;
     flex-wrap: wrap !important;
 }
@@ -33,6 +95,13 @@ header h1 {
     padding: 4px;
 }
 
+.card.cr.col.s3.hoverable {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* JOB CARD STYLING END */
 @media screen and (max-width: 1980px) {
     .cr {
         flex-basis: 10%;
