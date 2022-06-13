@@ -2,93 +2,68 @@ var searchInputEl = $("#searchInput");
 var searchFormEl = $("#searchForm");
 var coinDataContainer = $("#coinContainer");
 var searchHistoryEl = $("#previousSearches");
+var coinPriceEl = $("#coinPrice");
+var searchHistoryContainer = $("#searcHistoryContainer")
 // var search = searchInputEl.val();
 
-function searchInput(event) {
+//search function
+function searchInput(event) { // use the submit event
     event.preventDefault()
-    coinsListapi(searchInputEl.val())
+    coinsListapi(searchInputEl.val()) // insert search input in coinsListapi function
 }
 
-function coinsListapi(coinName) {
-    fetch("https://api.coingecko.com/api/v3/coins/" + coinName + "?tickers=true&market_data=true&sparkline=true")
+function coinsListapi(coinName) { // ref line 19
+    fetch(`https://api.coingecko.com/api/v3/coins/${coinName}?market_data=true`) // fecth url with dynamic endpoint
         .then(function (response) {
             response.json()
                 .then(function (data) {
-                    coinName = data.name;
-                    coinIcon = data.image.small;
-                    coinSymbol = data.symbol;
-                    coinDescription = data.description.en;
-                    // console.log(coinName, coinIcon, coinSymbol, coinDescription);
-                    displayCurrentData(coinName, coinIcon, coinSymbol);
-                    priceData(data.name)
-                    dispSearchHist(coinName)
-
+                    console.log(data);
+                    coinName = data.name; // ex: {"name: 'Bitcoin'"} the name
+                    coinId = data.id; // ex: {"id: 'bitcoin'"} the ID, this one matters because if lowercase, the fetch url below will not accept it as a parameter. 
+                    coinIcon = data.image.small; // ex: {"image: 'small'"} the icon
+                    coinSymbol = data.symbol; // ex: {"symbol: 'btc'"} this is the coin's ticker
+                    coinDescription = data.description.en; // ex {"description: en: (some text)"} the description
+                    console.log(coinPrice);
+                    // setting parameters for the following functions
+                    displayCurrentData(coinName, coinIcon, coinSymbol, coinDescription);
+                    PriceData(coinId);
                 })
         });
 
     return;
 }
 
-function priceData() {
-    fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=" + searchInputEl.val())
+function PriceData(coinId) {
+    fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${coinId}`)
         .then(function (response) {
             response.json()
                 .then(function (data) {
+                    console.log(data);
                     coinPrice = data[0].current_price;
+                    coinName = data.name;
                     console.log(coinPrice);
-                    displayCurrentData(data.name, coinIcon, coinSymbol, coinPrice)
-            })
-    })
+                    displayCurrentData(coinName, coinIcon, coinSymbol, data[0].current_price, coinDescription)
+                })
+        })
 }
-
-function displayCurrentData(coinName, coinIcon, coinSymbol, coinPrice) {
+function displayCurrentData(coinName, coinIcon, coinSymbol, coinPrice, coinDescription) {
     $("#coinName").html(coinName);// coin name
-    $("#coinPrice").html(coinPrice);// coin price
     $("#coinSymbol").html(coinSymbol); // coin symbol
     $("#icon").attr("src", `${coinIcon}`); //icon
     $("#description").html(coinDescription); //description
-}
 
-function dispSearchHist(coinName, initialStart) {
-    var matchFound = false;
-    $("previousSearches").children("").each(function () {
-        if (coinName == $(this).text()) {
-            matchFound = true;
-            return;
-        }
+    // number formatter.
+    var formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
     });
-    if (matchFound) { return; }
+    var coinPriceDisp = formatter.format(coinPrice); // display coin price in currency format
 
-    var buttonEL = $("<button type='button' class='col 12 btn'>" + coinName + "</button>")
-    buttonEL.on("click", previousButtonClick);
-    buttonEL.prependTo(searchHistoryEl);
-
-    if (!initialStart) { savePreviousData(coinName) };
-}
-
-function savePreviousData(coinName) {
-    tempItem = JSON.parse(localStorage.getItem("previousSearches"))
-    if (tempItem != null) {
-        localStorage.setItem("previousSearches", JSON.stringify(tempItem.concat(coinName)))
-    } else {
-        tempArr = [coinName];
-        localStorage.setItem("previousSearches", JSON.stringify(tempArr))
-    }
-}
-
-function previousButtonClick(event) {
-    coinsListapi(event.target.innerHTML)
+    $("#coinPrice").html(coinPriceDisp);// coin price
 }
 
 function start() {
     searchFormEl.submit(searchInput)
-    tempArr = JSON.parse(localStorage.getItem("previousSearches"))
-    if (tempArr != null) {
-        for (let i = 0; i < tempArr.length; i++) {
-            dispSearchHist(tempArr[i], true)
-        }
-    
-    }
 }
 
 start()

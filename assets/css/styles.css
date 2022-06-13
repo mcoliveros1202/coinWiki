@@ -3,12 +3,11 @@ main {
 
 }
 
-.card {
-    max-width: 15rem;
+ .card {
     padding: 2rem 2.5rem 2.5rem 2rem;
     margin: 2rem;
 }
-
+*
 .container {
     margin: 0 0 0 15rem;
 }
@@ -25,8 +24,7 @@ header h1 {
 }
 
 .cc {
-    display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start !important;
     flex-wrap: wrap !important;
 }

@@ -31,19 +31,20 @@
                     </form>
                 </div>
             </div>
-            <div class="col s2" id="previousSearches">
-
-            </div>
         </div>
 
     </header>
     <!-- job information -->
     <main>
-        <div class="row cc section valign-wrapper left-align" id="myContentContainer">
+        <div id="searchHistoryContainer">
+        <div class="col s2" id="previousSearches">
+        </div>
+        </div>
+        <div class="row section cc valign-wrapper left-align" id="myContentContainer">
             <!-- the following cards are for styling purposes, will delete to create in js instead -->
-            <div class="card cr col s5 hoverable">
+            <div class="card cr col-8 s5 hoverable">
                 <img id="icon"></img>
-                <h3>$<span id="coinPrice"></span></h3>
+                <h3 id="coinPrice"></h3>
                 <h4 id="coinName"></h4>
                 <h5 id="coinSymbol"></h5>
                 <p id="description"></p>
