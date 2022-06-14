@@ -47,12 +47,12 @@ function PriceData(coinId) {
                 })
         })
 }
-
-function displayCurrentData(coinName, coinIcon, coinSymbol, coinPrice, coinDescription, coinHomepage, coinlink1, coinlink2, coinlink2) {
-    $("#coinDataContainer").attr("class", "card cr col-8 s5 hoverable"); // card container
+function displayCurrentData(coinName, coinIcon, coinSymbol, coinPrice, coinDescription, coinHomepage, coinlink1, coinlink2, coinlink3) {
+    $("#coinDataContainer").attr("class", "card cr col s5 hoverable");
     $("#coinName").html(coinName);// coin name
     $("#coinSymbol").html(coinSymbol); // coin symbol
-    $("#coinHomepage").attr("href", `${coinHomepage}`) //homepage linking to a tag around button element
+    $("#coinHomepage").attr("href", `${coinHomepage}`)
+    $("#coinHomepage").attr("class", "btn-floating btn-large pulse"); // icon pulse
     $("#icon").attr("src", `${coinIcon}`); //icon
     $("#description").html(coinDescription); //description
     $("#link1").attr("href", `${coinlink1}`); // blockchain site
