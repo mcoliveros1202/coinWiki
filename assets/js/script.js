@@ -98,7 +98,7 @@ function coinPaprikaTweetApi(coinSymbol, coinId) { // ref coinsListapi
 // displays tweets to page dynamically
 function displayTweets(tweets) { // ref coinpaprikaTweetApi
     tweetContainer.html(`<h3>Recent Tweets</h3>`); // section title
-    for (var i = 1; i <= 5; i++) { // for loop through data ie 'tweets'
+    for (var i = 1; i <= 3; i++) { // for loop through data ie 'tweets'
         // template string to dynamically create elements with data pulled from coinpaprika twitter api
         var divEl1 = $(`
         <div class="col s12 m6"
@@ -135,7 +135,7 @@ function coinPaprikaEventsApi(coinSymbol, coinId) { // ref coinpaprikaTweetApi
 // displays current event new articles dynamically on page
 function displayEvents(news) { // ref coinPaprikaEventsApi
     newsContainer.html(`<h3>Crypto News</h3>`); // section title
-    for (var i = 1; i <= 2; i++) { // loop through captured data
+    for (var i = 1; i <= 1; i++) { // loop through captured data
         // created a template string to created elements dynamically based on data captured in previous fetch request function
         var divEl2 = $(`
         <div class="col s12 m4">
