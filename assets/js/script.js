@@ -23,9 +23,11 @@ function coinsListapi(coinName) { // ref line 19
                     coinSymbol = data.symbol; // ex: {"symbol: 'btc'"} this is the coin's ticker
                     coinDescription = data.description.en; // ex {"description: en: (some text)"} the description
                     coinHomepage = data.links.homepage[0];
-                    console.log(coinHomepage);
+                    coinlink1 = data.links.blockchain_site[0]; // blockchain site
+                    coinlink2 = data.links.official_forum_url[0]; // forum site
+                    coinlink3 = data.links.subreddit_url; // subreddit
                     // setting parameters for the following functions
-                    displayCurrentData(coinName, coinIcon, coinSymbol, coinDescription, coinHomepage);
+                    displayCurrentData(coinName, coinIcon, coinSymbol, coinDescription, coinHomepage, coinlink1, coinlink2, coinlink3);
                     PriceData(coinId);
                 })
         });
@@ -52,7 +54,9 @@ function displayCurrentData(coinName, coinIcon, coinSymbol, coinPrice, coinDescr
     $("#coinHomepage").attr("class", "btn-floating btn-large pulse"); // icon pulse
     $("#icon").attr("src", `${coinIcon}`); //icon
     $("#description").html(coinDescription); //description
-
+    $("#link1").attr("href", `${coinlink1}`); // blockchain site
+    $("link2").attr("href", `${coinlink2}`); // coin forum site
+    $("link3").attr("href", `${coinlink2}`); // subreddit
 
     // number formatter.
     var formatter = new Intl.NumberFormat('en-US', {
