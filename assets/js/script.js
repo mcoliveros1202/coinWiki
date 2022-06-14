@@ -22,8 +22,10 @@ function coinsListapi(coinName) { // ref line 19
                     coinIcon = data.image.small; // ex: {"image: 'small'"} the icon
                     coinSymbol = data.symbol; // ex: {"symbol: 'btc'"} this is the coin's ticker
                     coinDescription = data.description.en; // ex {"description: en: (some text)"} the description
+                    coinHomepage = data.links.homepage[0];
+                    console.log(coinHomepage);
                     // setting parameters for the following functions
-                    displayCurrentData(coinName, coinIcon, coinSymbol, coinDescription);
+                    displayCurrentData(coinName, coinIcon, coinSymbol, coinDescription, coinHomepage);
                     PriceData(coinId);
                 })
         });
@@ -38,16 +40,19 @@ function PriceData(coinId) {
                 .then(function (data) {
                     coinPrice = data[0].current_price;
                     coinName = data.name;
-                    displayCurrentData(coinName, coinIcon, coinSymbol, data[0].current_price, coinDescription)
+                    displayCurrentData(coinName, coinIcon, coinSymbol, data[0].current_price, coinDescription, coinHomepage)
                 })
         })
 }
-function displayCurrentData(coinName, coinIcon, coinSymbol, coinPrice, coinDescription) {
-    $("#coinDataContainer").attr("class", "card cr col-8 s5 hoverable");
+function displayCurrentData(coinName, coinIcon, coinSymbol, coinPrice, coinDescription, coinHomepage) {
+    $("#coinDataContainer").attr("class", "card cr col s5 hoverable");
     $("#coinName").html(coinName);// coin name
     $("#coinSymbol").html(coinSymbol); // coin symbol
+    $("#coinHomepage").attr("href", `${coinHomepage}`)
+    $("#coinHomepage").attr("class", "btn-floating btn-large pulse"); // icon pulse
     $("#icon").attr("src", `${coinIcon}`); //icon
     $("#description").html(coinDescription); //description
+
 
     // number formatter.
     var formatter = new Intl.NumberFormat('en-US', {
