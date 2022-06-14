@@ -26,6 +26,7 @@ function coinsListapi(coinName) { // ref line 19
                     coinlink1 = data.links.blockchain_site[0]; // blockchain site
                     coinlink2 = data.links.official_forum_url[0]; // forum site
                     coinlink3 = data.links.subreddit_url; // subreddit
+                    console.log(coinlink1, coinlink2, coinlink3);
                     // setting parameters for the following functions
                     displayCurrentData(coinName, coinIcon, coinSymbol, coinDescription, coinHomepage, coinlink1, coinlink2, coinlink3);
                     PriceData(coinId);
@@ -42,10 +43,11 @@ function PriceData(coinId) {
                 .then(function (data) {
                     coinPrice = data[0].current_price;
                     coinName = data.name;
-                    displayCurrentData(coinName, coinIcon, coinSymbol, data[0].current_price, coinDescription, coinHomepage)
+                    displayCurrentData(coinName, coinIcon, coinSymbol, data[0].current_price, coinDescription, coinHomepage, coinlink1, coinlink2, coinlink3)
                 })
         })
 }
+
 function displayCurrentData(coinName, coinIcon, coinSymbol, coinPrice, coinDescription, coinHomepage, coinlink1, coinlink2, coinlink2) {
     $("#coinDataContainer").attr("class", "card cr col-8 s5 hoverable"); // card container
     $("#coinName").html(coinName);// coin name
@@ -54,8 +56,8 @@ function displayCurrentData(coinName, coinIcon, coinSymbol, coinPrice, coinDescr
     $("#icon").attr("src", `${coinIcon}`); //icon
     $("#description").html(coinDescription); //description
     $("#link1").attr("href", `${coinlink1}`); // blockchain site
-    $("link2").attr("href", `${coinlink2}`); // coin forum site
-    $("link3").attr("href", `${coinlink2}`); // subreddit
+    $("#link2").attr("href", `${coinlink2}`); // coin forum site
+    $("#link3").attr("href", `${coinlink3}`); // subreddit
 
     // number formatter.
     var formatter = new Intl.NumberFormat('en-US', {
