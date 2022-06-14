@@ -8,8 +8,7 @@
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel="stylesheet" href="/assets/materialize/css/materialize.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/materialize/css/materialize.css">
     <link rel="stylesheet" href="./assets/css/styles.css">
     <title>Job Board</title>
 </head>
@@ -20,7 +19,6 @@
             <div class="col s3">
                 <h1>CryptoCoin</h1>
             </div>
-            <!-- search for a currency -->
             <div class="col s7">
                 <div class="container">
                     <form class="row section" id="searchForm">
@@ -35,144 +33,16 @@
         </div>
 
     </header>
-    <!-- currency information -->
     <main>
-        <div class="row cc section valign-wrapper left-align" id="jobResultsContainer">
-            <!-- the following cards are for styling purposes, will delete to create in js instead -->
-            <div class="card cr col s3 hoverable">
-                <h3 class="card-title">Job Title <i class="tiny material-icons">home</i></h3>
-                <div class="card-body">
-                <h5>Company</h5>
-                <p>Location</p>
-                <p>Description</p>
-                </div>  
-            </div>
-            <div class="card cr col s3 hoverable">
-                <h3 class="card-title">Job Title <i class="tiny material-icons">home</i></h3>
-                <div class="card-body">
-                <h5 class="">Company
-                </h5>
-                <p class="">Location</p>
-                <p class="">Description</p>
-                </div>
-            </div>
-            <div class="card cr col s3 hoverable">
-                <h3 class="card-title">Job Title <i class="tiny material-icons">home</i></h3>
-                <div class="card-body">
-                <h5 class="">Company
-                </h5>
-                <p class="">Location</p>
-                <p class="">Description</p>
-            </div>
-            </div>
-            <div class="card cr col s3 hoverable">
-                <h3 class="card-title">Job Title <i class="tiny material-icons">home</i></h3>
-                <div class="card-body">
-                <h5 class="">Company
-                </h5>
-                <p class="">Location</p>
-                <p class="">Description</p>
-                </div> 
-            </div>
-            <div class="card cr col s3 hoverable">
-                <h3 class="card-title">Job Title <i class="tiny material-icons">home</i></h3>
-                <div class="card-body">
-                <h5 class="">Company
-                </h5>
-                <p class="">Location</p>
-                <p class="">Description</p>
-                </div>
-            </div>
-            <div class="card cr col s3 hoverable">
-                <h3 class="card-title">Job Title <i class="tiny material-icons">home</i></h3>
-                <div class="card-body">
-                <h5 class="">Company
-                </h5>
-                <p class="">Location</p>
-                <p class="">Description</p>
-                </div>  
-            </div>
-            <div class="card cr col s3 hoverable">
-                <h3 class="card-title">Job Title <i class="tiny material-icons">home</i></h3>
-                <div class="card-body">
-                <h5 class="">Company
-                </h5>
-                <p class="">Location</p>
-                <p class="">Description</p>
-                </div>
-            </div>
-            <div class="card cr col s3 hoverable">
-                <h3 class="card-title">Job Title <i class="tiny material-icons">home</i></h3>
-                <div class="card-body">
-                <h5 class="">Company
-                </h5>
-                <p class="">Location</p>
-                <p class="">Description</p>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="row section cc valign-wrapper left-align" id="myContentContainer">
-            <!-- the following cards are for styling purposes, will delete to create in js instead -->
-            <div class="card cr col-8 s5 hoverable">
-                <img id="icon"></img>
-                <h3 id="coinPrice"></h3>
-                <h4 id="coinName"></h4>
-                <h5 id="coinSymbol"></h5>
-                <p id="description"></p>
 
-            </div>
-            <!--
-        <div class="card cr col s3 hoverable">
-            <h3 class="">Job Title</h3>
-            <h4 class="">Company
-            </h4>
-            <p class="">Location</p>
-            <p class="">Remote Status</p>
+
+        <img id="icon"></img>
+        <h3 id="coinPrice"></h3>
+        <h4 id="coinName"></h4>
+        <h5 id="coinSymbol"></h5>
+        <p id="description"></p>
+
         </div>
-        <div class="card cr col s3 hoverable">
-            <h3 class="">Job Title</h3>
-            <h4 class="">Company
-            </h4>
-            <p class="">Location</p>
-            <p class="">Remote Status</p>
-        </div>
-        <div class="card cr col s3 hoverable">
-            <h3 class="">Job Title</h3>
-            <h4 class="">Company
-            </h4>
-            <p class="">Location</p>
-            <p class="">Remote Status</p>
-        </div>
-        <div class="card cr col s3 hoverable">
-            <h3 class="">Job Title</h3>
-            <h4 class="">Company
-            </h4>
-            <p class="">Location</p>
-            <p class="">Remote Status</p>
-        </div>
-        <div class="card cr col s3 hoverable">
-            <h3 class="">Job Title</h3>
-            <h4 class="">Company
-            </h4>
-            <p class="">Location</p>
-            <p class="">Remote Status</p>
-        </div>
-        <div class="card cr col s3 hoverable">
-            <h3 class="">Job Title</h3>
-            <h4 class="">Company
-            </h4>
-            <p class="">Location</p>
-            <p class="">Remote Status</p>
-        </div>
-        <div class="card cr col s3 hoverable">
-            <h3 class="">Job Title</h3>
-            <h4 class="">Company
-            </h4>
-            <p class="">Location</p>
-            <p class="">Remote Status</p>
-        </div>
-        </div> -->
     </main>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
