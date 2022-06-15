@@ -82,6 +82,7 @@ input[type=search]:not(.browser-default):focus:not([readonly]) {
 .card-body {
     padding-left: 10px;
 }
+
 .cc {
     display: flex;
     flex-direction: column;
@@ -98,6 +99,55 @@ input[type=search]:not(.browser-default):focus:not([readonly]) {
     display: flex;
     flex-direction: column;
 }
+
+
+/* footer */
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-image: linear-gradient(to right, #021572, #ffffff);
+    color: white;
+}
+
+#btn1,
+#btn2,
+#btn3 {
+    background-color: white;
+    border: none;
+    color: black;
+    text-align: center;
+    border-radius: 7px;
+    font-size: 14px;
+    transition-duration: 0.4s;
+    float: right;
+    position: relative;
+    top: 10px;
+    right: 20px;
+    bottom: 10px;
+    left: 10px;
+}
+
+
+#btn1:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+#btn2:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+#btn3:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+
 /* JOB CARD STYLING END */
 @media screen and (max-width: 1980px) {
     .cr {
