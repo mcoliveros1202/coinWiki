@@ -15,7 +15,7 @@ function searchInput(event) { // use the submit event
 }
 // coingecko coin list api
 function coinsListapi(coinName) { // ref line 19
-    fetch(`https://api.coingecko.com/api/v3/coins/${coinName}?market_data=true`) // fecth url with dynamic endpoint
+    fetch(`https://api.coingecko.com/api/v3/coins/${coinName}?market_data=true`) // fetch url with dynamic endpoint
         .then(function (response) {
             response.json()
                 .then(function (data) {
@@ -101,13 +101,14 @@ function displayTweets(tweets) { // ref coinpaprikaTweetApi
         // template string to dynamically create elements with data pulled from coinpaprika twitter api
         var divEl1 = $(`
         <div class="col s12 m6" id="plumbs"
-            <div class="card-content">
-                <div class="twitterCard card horizontal">
+            <div class="card-content row">
+                <div class="twitterCard card">
                     <div class="card-image">
                         <img src="${tweets[i].user_image_link}">
+                        <h4> @${tweets[i].user_name}</h4>
                     </div>
-                    <div class="card-stacked">
-                    <h4> @${tweets[i].user_name}</h4>
+                    <div class="card-stacked block">
+                    
                     <p>"${tweets[i].status}" <a href="${tweets[i].status_link}">&nbsp via Twitter</a></p>
                     </div>
                 </div>
@@ -116,7 +117,6 @@ function displayTweets(tweets) { // ref coinpaprikaTweetApi
         divEl1.appendTo(tweetContainer) // place inside container already created in html file
     }
     dispSearchHist(coinId, false);
-    
 }
 
 function dispSearchHist(coinId, initialStart) {

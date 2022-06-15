@@ -12,6 +12,16 @@ main {
 
 .container {
     margin: 0 0 0 15rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.container .row {
+    margin-left: 3.25rem;
+    margin-right: 7.25rem;
 }
 
 /* HEADER/SEARCH STYLING START */
@@ -43,7 +53,8 @@ header h1 {
 }
 
 .row .col.s12 {
-    width: 65%;
+    width: 55%;
+    display: inline-block;
 }
 
 input[type=search]:not(.browser-default):focus:not([readonly]) {
@@ -53,24 +64,45 @@ input[type=search]:not(.browser-default):focus:not([readonly]) {
     color: #ffffff;
     background-color: transparent;
 }
+#searchForm.row.section  {
+    padding: 0;
+}
+#searchForm {
+    padding-left: 0;
+}
 
+.form-control.col.s4.m2 {
+    width: 50%;
+}
+
+.col.s3.btn {
+    width: 35%;
+}
+
+#previousSearches {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+button.col.s12.m3.btn {
+    margin: 4px;
+}
 
 /*  HEADER/SEARCH STYLING END */
 
 /* JOB CARD STYLING START */
 .parent {
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
+    display: inline-block;
 }
 
 /* COIN DESCRIPTION CARD */
 #coinDataContainer {
     padding: 30px;
-    box-sizing: content-box;
-    width: 100%;
+    width: 95%;
 }
-
+.card.cr.col.s5.hoverable {
+    margin-right: 10px;
+}
 #coinHomepage.btn-floating.pulse::before {
     background-color: rgba(2, 21, 39, 0.5);
     top: -1px;
@@ -98,39 +130,59 @@ input[type=search]:not(.browser-default):focus:not([readonly]) {
     color: green;
 }
 
+.row .col.s12 #plubms {
+    width: 55%;
+}
+
 /* TWITTER CARD STYLING */
-.card.horizontal {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-    width: 50%;
+.row {
+
+    margin: 0 auto;
 }
 
-#plumbs .col.s12 {
-    padding-left: 10px;
-    width: 30%;
-}
-
-#tweetInfo.s12.m4.l4 {
-    display: flex;
-
-}
-
-#tweetContainer.row {
-    display: flex;
-    flex-direction: column;
-
-}
-
-.card-content {
+.tweetsTitle {
     display: flex;
     justify-content: center;
 }
 
+.card-image {
+    width: 5%;
+    height: 5%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card-image img {
+    margin-right: 25px;
+}
+
+#plumbs.col.s12.m6 {
+    width: 100%;
+    padding-right: 5px;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/*#tweetInfo.s12.m4.l4 {
+    width: 50%;
+
+}
+
+#tweetContainer.row {
+display: inline-block;
+    
+}*/
+
+.card-content.row {
+    display: flex;
+    justify-content: center;
+}
+/*
 .child {
     display: inline-block;
-}
+} */
 /* footer */
 
 #footer {
