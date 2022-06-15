@@ -97,22 +97,22 @@ function coinPaprikaTweetApi(coinSymbol, coinId) { // ref coinsListapi
 
 // displays tweets to page dynamically
 function displayTweets(tweets) { // ref coinpaprikaTweetApi
-    tweetContainer.html(`<h3>Recent Tweets</h3>`); // section title
+    tweetContainer.html(`<h3 class="tweetsTitle">Recent Tweets</h3>`); // section title
     for (var i = 1; i <= 3; i++) { // for loop through data ie 'tweets'
         // template string to dynamically create elements with data pulled from coinpaprika twitter api
         var divEl1 = $(`
-        <div class="col s12 m6"
-        <div class="card-content">
-        <div class="twitterCard card horizontal">
-        <div class="card-image">
-        <img src="${tweets[i].user_image_link}">
-        </div>
-        <div class="card-stacked">
-        <h4> @${tweets[i].user_name}</h4>
-        <p>"${tweets[i].status}" <a href="${tweets[i].status_link}">&nbsp via Twitter</a></p>
-        </div>
-        </div>
-        </div>
+        <div class="col s12 m6" id="plumbs"
+            <div class="card-content">
+                <div class="twitterCard card horizontal">
+                    <div class="card-image">
+                        <img src="${tweets[i].user_image_link}">
+                    </div>
+                    <div class="card-stacked">
+                    <h4> @${tweets[i].user_name}</h4>
+                    <p>"${tweets[i].status}" <a href="${tweets[i].status_link}">&nbsp via Twitter</a></p>
+                    </div>
+                </div>
+            </div>
         </div>`)
         divEl1.appendTo(tweetContainer) // place inside container already created in html file
     }

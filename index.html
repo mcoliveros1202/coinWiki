@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/materialize/css/materialize.css">
     <link rel="stylesheet" href="./assets/css/styles.css">
-    <title>CryptoCoin</title>
+    <title>CoinWiki</title>
 </head>
 
 <body>
@@ -18,13 +18,13 @@
         <!-- search section-->
         <div class="row section">
             <div class="col s3">
-                <h1>CryptoCoin</h1>
+                <h1>CoinWiki</h1>
             </div>
             <div class="col s7">
                 <div class="container">
                     <!-- search form-->
                     <form class="row section" id="searchForm">
-                        <input type="search" name="search" class="form-control col s4"
+                        <input type="search" name="search" class="form-control col s4 m2"
                             style="margin-top: 2rem; margin-right: 2rem;" id="searchInput" placeholder="Search">
                         <button type="submit" class="col s3 btn" id="mySearchButton"
                             style="margin-top: 2.5rem;">Search</button>
@@ -36,22 +36,27 @@
     </header>
     <main>
         <!-- coin data elements-->
-        <div id="coinDataContainer">
-            <a id="coinHomepage"><button class="icons-btn">
-                    <img id="icon"></img>
-                </button> </a>
-            <h3 id="coinPrice"></h3>
-            <h4 id="coinName"></h4>
-            <h5 id="coinSymbol"></h5>
-            <p id="description" class="flow-text"></p>
+        <div class="parent">
+            <div class="child" id="coinDataContainer">
+                <a id="coinHomepage"><button class="icons-btn">
+                        <img id="icon"></img>
+                    </button> </a>
+                <h3 id="coinPrice"></h3>
+                <h4 id="coinName"></h4>
+                <h5 id="coinSymbol"></h5>
+                <p id="description" class="flow-text"></p>
 
-        </div>
-        <!-- tweet container elements-->
-        <div id="tweetContainer" class="row">
+            </div>
+            <div class="child" id="tweetInfo">
+                <!-- tweet container elements-->
+                <div id="tweetContainer" class="row">
+                </div>
+            </div>
         </div>
         <!-- tweet container elements-->
         <div id="newsContainer" class="row">
         </div>
+
     </main>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
