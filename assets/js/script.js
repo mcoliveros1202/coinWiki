@@ -101,14 +101,15 @@ function displayTweets(tweets) { // ref coinpaprikaTweetApi
     for (var i = 1; i <= 3; i++) { // for loop through data ie 'tweets'
         // template string to dynamically create elements with data pulled from coinpaprika twitter api
         var divEl1 = $(`
-        <div class="col s12 m6" id="plumbs" style="width: 30%"
+        <div class="col s12 m6" id="plumbs"
             <div class="card-content row">
                 <div class="twitterCard card">
                     <div class="card-image">
                         <img src="${tweets[i].user_image_link}">
+                        <h4> @${tweets[i].user_name}</h4>
                     </div>
                     <div class="card-stacked block">
-                    <h4> @${tweets[i].user_name}</h4>
+                    
                     <p>"${tweets[i].status}" <a href="${tweets[i].status_link}">&nbsp via Twitter</a></p>
                     </div>
                 </div>
