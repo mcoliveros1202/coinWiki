@@ -33,7 +33,6 @@ function coinsListapi(coinName) { // ref line 19
                     displayCurrentData(coinName, coinIcon, coinSymbol, coinDescription, coinHomepage, coinlink1, coinlink2, coinlink3);
                     PriceData(coinId);
                     coinPaprikaTweetApi(coinSymbol, coinId);
-                    coinPaprikaEventsApi(coinSymbol, coinId);
                 })
         });
 
@@ -119,42 +118,6 @@ function displayTweets(tweets) { // ref coinpaprikaTweetApi
     }
     dispSearchHist(coinId, false);
 }
-
-// coinpaprikaapi for current events relating to crypto currency
-function coinPaprikaEventsApi(coinSymbol, coinId) { // ref coinpaprikaTweetApi
-    fetch(`https://api.coinpaprika.com/v1/coins/${coinSymbol}-${coinId}/events`) // fet the url
-        .then(function (response) {
-            response.json()
-                .then(function (data) {
-                    news = data; // defines data as "news"
-                    displayEvents(data, coinId); // sets parameter for function to display current events
-                });
-        });
-
-
-}
-
-// // displays current event new articles dynamically on page
-// function displayEvents(news, coinId) { 
-//     console.log(news);
-//     newsContainer.html(`<h3>Crypto News for ${coinId}</h3>`); // section title
-
-//     for (var i = 0; i <= 1; i++) { // loop through captured data
-//         // created a template string to created elements dynamically based on data captured in previous fetch request function
-//         var divEl2 = $(`
-//         <div class="col s12 m4">
-//         <div class="card-content">
-//         <div class="newsCard card">
-//         <h4>${news[i].name}</h4>
-//         <p id="newsDescription" class="">${news[i].description}<a href="${news[i].link}"> Read more...</a></p>
-//         </div>
-//         </div>
-//         </div>`)
-//         divEl2.appendTo(newsContainer) // attach string inside container that already exists in the html file
-
-//     }
-//     dispSearchHist(coinId, false);
-// }
 
 function dispSearchHist(coinId, initialStart) {
     // search history
