@@ -1,6 +1,8 @@
 main {
     margin: 2rem;
-
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .card {
@@ -56,6 +58,19 @@ input[type=search]:not(.browser-default):focus:not([readonly]) {
 /*  HEADER/SEARCH STYLING END */
 
 /* JOB CARD STYLING START */
+.parent {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* COIN DESCRIPTION CARD */
+#coinDataContainer {
+    padding: 30px;
+    box-sizing: content-box;
+    width: 100%;
+}
+
 #coinHomepage.btn-floating.pulse::before {
     background-color: rgba(2, 21, 39, 0.5);
     top: -1px;
@@ -79,25 +94,90 @@ input[type=search]:not(.browser-default):focus:not([readonly]) {
     z-index: 1;
 }
 
-.card-body {
+#coinPrice {
+    color: green;
+}
+
+/* TWITTER CARD STYLING */
+.card.horizontal {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 50%;
+}
+
+#plumbs .col.s12 {
     padding-left: 10px;
-}
-.cc {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start !important;
-    flex-wrap: wrap !important;
+    width: 30%;
 }
 
-.cr {
-    padding: 4px;
+#tweetInfo.s12.m4.l4 {
+    display: flex;
+
 }
 
-.card.cr.col.s3.hoverable {
-    padding: 0;
+#tweetContainer.row {
     display: flex;
     flex-direction: column;
+
 }
+
+.card-content {
+    display: flex;
+    justify-content: center;
+}
+
+.child {
+    display: inline-block;
+}
+/* footer */
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-image: linear-gradient(to right, #021572, #ffffff);
+    color: white;
+}
+
+#btn1,
+#btn2,
+#btn3 {
+    background-color: white;
+    border: none;
+    color: black;
+    text-align: center;
+    border-radius: 7px;
+    font-size: 14px;
+    transition-duration: 0.4s;
+    float: right;
+    position: relative;
+    top: 10px;
+    right: 20px;
+    bottom: 10px;
+    left: 10px;
+}
+
+
+#btn1:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+#btn2:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+#btn3:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+
 /* JOB CARD STYLING END */
 @media screen and (max-width: 1980px) {
     .cr {
