@@ -50,6 +50,7 @@ function PriceData(coinId) { // ref coinsListapi
                     coinName = data.name;
                     // set new parameters with current parameters
                     displayCurrentData(coinName, coinIcon, coinSymbol, data[0].current_price, coinDescription, coinHomepage, coinlink1, coinlink2, coinlink3);
+        
                 });
         });
 
@@ -86,9 +87,8 @@ function coinPaprikaTweetApi(coinSymbol, coinId) { // ref coinsListapi
                 .then(function (data) {
                     tweets = data; // define data as tweets
                     // set parameter for future api request function
-                    coinPaprikaEventsApi(coinSymbol, coinId);
                     // set parameter as data captured in this fetch request to be displayed in html file
-                    displayTweets(tweets);
+                    displayTweets(tweets, coinId);
                 });
         });
 
@@ -116,6 +116,8 @@ function displayTweets(tweets) { // ref coinpaprikaTweetApi
         </div>`)
         divEl1.appendTo(tweetContainer) // place inside container already created in html file
     }
+    dispSearchHist(coinId, false);
+    
 }
 
 // coinpaprikaapi for current events relating to crypto currency
@@ -125,7 +127,7 @@ function coinPaprikaEventsApi(coinSymbol, coinId) { // ref coinpaprikaTweetApi
             response.json()
                 .then(function (data) {
                     news = data; // defines data as "news"
-                    displayEvents(data); // sets parameter for function to display current events
+                    displayEvents(data, coinId); // sets parameter for function to display current events
                 });
         });
 
@@ -133,27 +135,67 @@ function coinPaprikaEventsApi(coinSymbol, coinId) { // ref coinpaprikaTweetApi
 }
 
 // displays current event new articles dynamically on page
-function displayEvents(news) { // ref coinPaprikaEventsApi
-    newsContainer.html(`<h3>Crypto News</h3>`); // section title
-    for (var i = 1; i <= 1; i++) { // loop through captured data
+function displayEvents(news, coinId) { 
+    console.log(news);
+    newsContainer.html(`<h3>Crypto News for ${coinId}</h3>`); // section title
+
+    for (var i = 0; i <= 1; i++) { // loop through captured data
         // created a template string to created elements dynamically based on data captured in previous fetch request function
         var divEl2 = $(`
         <div class="col s12 m4">
         <div class="card-content">
         <div class="newsCard card">
-        <img src="${news[i].proof_image_link}" class="responsive-img">
         <h4>${news[i].name}</h4>
         <p id="newsDescription" class="">${news[i].description}<a href="${news[i].link}"> Read more...</a></p>
         </div>
         </div>
         </div>`)
         divEl2.appendTo(newsContainer) // attach string inside container that already exists in the html file
+
+    }
+    dispSearchHist(coinId, false);
+}
+
+function dispSearchHist(coinId, initialStart) {
+    // search history
+    var matchFound = false;
+    $("#previousSearches").children("").each(function () { 
+        if (coinId == $(this).text()) {
+            matchFound = true;
+            return;
+        }
+    });
+    if (matchFound) { return; }
+
+    var buttonEl = $('<button type="button" class="col s12 m3 btn">' + coinId + '</button>')
+    buttonEl.on("click", previousButtonClick);
+    buttonEl.prependTo(searchHistoryEl);
+
+    if (!initialStart) { savePreviousData(coinId) };
+}
+
+function savePreviousData(coinId) { 
+    tempItem = JSON.parse(localStorage.getItem("previousSearches"))
+    if (tempItem != null) {
+        localStorage.setItem("previousSearches", JSON.stringify(tempItem.concat(coinId)))
+    } else {
+        tempArr = [coinName];
+        localStorage.setItem("previousSearches", JSON.stringify(tempArr))
     }
 }
 
+function previousButtonClick(event) {
+    coinsListapi(event.target.innerHTML);
+}
 
 function start() { // lets get this shit started frfr
     searchFormEl.submit(searchInput)
+    tempArr = JSON.parse(localStorage.getItem("previousSearches"))
+    if (tempArr != null) {
+        for (let i = 0; i < tempArr.length; i++) {
+            dispSearchHist(tempArr[i], true);
+        }
+    }
 }
 
 start() // yeet
