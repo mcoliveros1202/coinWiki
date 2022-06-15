@@ -15,7 +15,7 @@ function searchInput(event) { // use the submit event
 }
 // coingecko coin list api
 function coinsListapi(coinName) { // ref line 19
-    fetch(`https://api.coingecko.com/api/v3/coins/${coinName}?market_data=true`) // fecth url with dynamic endpoint
+    fetch(`https://api.coingecko.com/api/v3/coins/${coinName}?market_data=true`) // fetch url with dynamic endpoint
         .then(function (response) {
             response.json()
                 .then(function (data) {
@@ -101,13 +101,13 @@ function displayTweets(tweets) { // ref coinpaprikaTweetApi
     for (var i = 1; i <= 3; i++) { // for loop through data ie 'tweets'
         // template string to dynamically create elements with data pulled from coinpaprika twitter api
         var divEl1 = $(`
-        <div class="col s12 m6" id="plumbs"
-            <div class="card-content">
-                <div class="twitterCard card horizontal">
+        <div class="col s12 m6" id="plumbs" style="width: 30%"
+            <div class="card-content row">
+                <div class="twitterCard card">
                     <div class="card-image">
                         <img src="${tweets[i].user_image_link}">
                     </div>
-                    <div class="card-stacked">
+                    <div class="card-stacked block">
                     <h4> @${tweets[i].user_name}</h4>
                     <p>"${tweets[i].status}" <a href="${tweets[i].status_link}">&nbsp via Twitter</a></p>
                     </div>
@@ -117,7 +117,6 @@ function displayTweets(tweets) { // ref coinpaprikaTweetApi
         divEl1.appendTo(tweetContainer) // place inside container already created in html file
     }
     dispSearchHist(coinId, false);
-    
 }
 
 // coinpaprikaapi for current events relating to crypto currency
@@ -134,27 +133,27 @@ function coinPaprikaEventsApi(coinSymbol, coinId) { // ref coinpaprikaTweetApi
 
 }
 
-// displays current event new articles dynamically on page
-function displayEvents(news, coinId) { 
-    console.log(news);
-    newsContainer.html(`<h3>Crypto News for ${coinId}</h3>`); // section title
+// // displays current event new articles dynamically on page
+// function displayEvents(news, coinId) { 
+//     console.log(news);
+//     newsContainer.html(`<h3>Crypto News for ${coinId}</h3>`); // section title
 
-    for (var i = 0; i <= 1; i++) { // loop through captured data
-        // created a template string to created elements dynamically based on data captured in previous fetch request function
-        var divEl2 = $(`
-        <div class="col s12 m4">
-        <div class="card-content">
-        <div class="newsCard card">
-        <h4>${news[i].name}</h4>
-        <p id="newsDescription" class="">${news[i].description}<a href="${news[i].link}"> Read more...</a></p>
-        </div>
-        </div>
-        </div>`)
-        divEl2.appendTo(newsContainer) // attach string inside container that already exists in the html file
+//     for (var i = 0; i <= 1; i++) { // loop through captured data
+//         // created a template string to created elements dynamically based on data captured in previous fetch request function
+//         var divEl2 = $(`
+//         <div class="col s12 m4">
+//         <div class="card-content">
+//         <div class="newsCard card">
+//         <h4>${news[i].name}</h4>
+//         <p id="newsDescription" class="">${news[i].description}<a href="${news[i].link}"> Read more...</a></p>
+//         </div>
+//         </div>
+//         </div>`)
+//         divEl2.appendTo(newsContainer) // attach string inside container that already exists in the html file
 
-    }
-    dispSearchHist(coinId, false);
-}
+//     }
+//     dispSearchHist(coinId, false);
+// }
 
 function dispSearchHist(coinId, initialStart) {
     // search history
@@ -192,7 +191,7 @@ function start() { // lets get this shit started frfr
     searchFormEl.submit(searchInput)
     tempArr = JSON.parse(localStorage.getItem("previousSearches"))
     if (tempArr != null) {
-        for (let i = 0; i < tempArr.length; i++) {
+        for (let i = 1; i < tempArr.length; i++) {
             dispSearchHist(tempArr[i], true);
         }
     }

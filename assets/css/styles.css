@@ -12,6 +12,16 @@ main {
 
 .container {
     margin: 0 0 0 15rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.container .row {
+    margin-left: 3.25rem;
+    margin-right: 7.25rem;
 }
 
 /* HEADER/SEARCH STYLING START */
@@ -43,7 +53,8 @@ header h1 {
 }
 
 .row .col.s12 {
-    width: 65%;
+    width: 55%;
+    display: inline-block;
 }
 
 input[type=search]:not(.browser-default):focus:not([readonly]) {
@@ -53,15 +64,31 @@ input[type=search]:not(.browser-default):focus:not([readonly]) {
     color: #ffffff;
     background-color: transparent;
 }
+#searchForm {
+    padding-left: 0;
+}
+.form-control.col.s4.m2 {
+    width: 50%;
+}
 
+.col.s3.btn {
+    width: 35%;
+}
+
+#previousSearches {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+button.col.s12.m3.btn {
+    margin: 4px;
+}
 
 /*  HEADER/SEARCH STYLING END */
 
 /* JOB CARD STYLING START */
 .parent {
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
+    display: inline-block;
 }
 
 /* COIN DESCRIPTION CARD */
@@ -98,29 +125,47 @@ input[type=search]:not(.browser-default):focus:not([readonly]) {
     color: green;
 }
 
+.row .col.s12 #plubms{ 
+    width: 55%;
+}
 /* TWITTER CARD STYLING */
-.card.horizontal {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-    width: 50%;
+.row {
+
+    margin: 0 auto;
 }
 
-#plumbs .col.s12 {
+ .tweetContainer {
+     text-align: center;
+     align-items: center;
+}
+
+.tweetsTitle {
+    float: left;
+    margin-left: 600px;
+}
+
+.card-image {
+    width: 25%;
+    height: 25%;
+}
+
+
+#plumbs .col.s12.m6 {
     padding-left: 10px;
     width: 30%;
+    padding-right: 5px;
+    padding-left: 0;
+   
 }
 
-#tweetInfo.s12.m4.l4 {
-    display: flex;
+/*#tweetInfo.s12.m4.l4 {
+    width: 50%;
 
 }
 
 #tweetContainer.row {
-    display: flex;
-    flex-direction: column;
-
+display: inline-block;
+    
 }
 
 .card-content {
@@ -130,7 +175,7 @@ input[type=search]:not(.browser-default):focus:not([readonly]) {
 
 .child {
     display: inline-block;
-}
+} */
 /* footer */
 
 #footer {
