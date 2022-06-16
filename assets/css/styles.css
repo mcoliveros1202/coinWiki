@@ -25,9 +25,19 @@ main {
 }
 
 /* HEADER/SEARCH STYLING START */
+.row.section {
+    display: flex;
+}
 header {
     padding-left: 3rem;
     background-image: linear-gradient(to right, #021572, #ffffff);
+}
+
+.row .col.s7 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 header h1 {
@@ -64,15 +74,21 @@ input[type=search]:not(.browser-default):focus:not([readonly]) {
     color: #ffffff;
     background-color: transparent;
 }
-#searchForm.row.section  {
+
+#searchForm.row.section {
     padding: 0;
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+    margin-right: 15rem;
 }
+
 #searchForm {
     padding-left: 0;
 }
 
 .form-control.col.s4.m2 {
-    width: 50%;
+    width: 20rem;
 }
 
 .col.s3.btn {
@@ -100,9 +116,11 @@ button.col.s12.m3.btn {
     padding: 30px;
     width: 95%;
 }
+
 .card.cr.col.s5.hoverable {
     margin-right: 10px;
 }
+
 #coinHomepage.btn-floating.pulse::before {
     background-color: rgba(2, 21, 39, 0.5);
     top: -1px;
@@ -179,6 +197,7 @@ display: inline-block;
     display: flex;
     justify-content: center;
 }
+
 /*
 .child {
     display: inline-block;
@@ -247,16 +266,133 @@ display: inline-block;
     .cr {
         flex-basis: 20%;
     }
+    .col.s3 h1 {
+        font-size: 4rem;
+        margin-left: -25px;
+        margin-top: 45px;
+    }
+
+    .container {
+        margin: 1px 1px 1px 185px;
+        display: flex;
+        justify-content: center;
+    }
+
+    #searchForm.row.section {
+        height: -3rem;
+        margin-left: 60px;
+    }
+
+    .form-control.col.s4.m2 {
+        border: solid 1px #021572;
+        width: 10rem;
+        height: 2rem;
+        background-color: #ffffff;
+        margin-bottom: 1rem;
+        margin: -8rem;
+    }
+    #mySearchButton {
+        width: 7rem;
+        font-size: .75rem;
+        margin-left: -6.5rem;
+        margin-top: 5.75rem;
+    }
+
+    button.col.s12.m3.btn {
+        width: 100%;
+        font-size: .75rem;
+        padding: 0 30px;
+    }
+
+    .parent {
+        margin: -2rem;
+    }
+    #coinDataContainer {
+        padding: 2rem;
+        width: 95%;
+        margin: 1.5rem;
+    }
+
+    #tweetContainer {
+        width: 100%;
+        margin: 0rem;
+    }
+
+    .card-image h4 {
+        font-size: 2rem;
+    }
+
+    .card-stacked.block {
+        font-size: 1rem;
+    }
 }
 
 @media screen and (max-width: 800px) {
     .cr {
         flex-basis: 33.3%;
     }
+
+    .col.s3 h1 {
+        font-size: 3rem;
+        margin-left: -16px;
+    }
+
+    .container {
+        margin: 1px 1px 1px 1px;
+    }
+
+    #searchForm.row.section {
+        height: 3rem;
+        margin-left: 60px;
+    }
+
+    .form-control.col.s4.m2 {
+        border: solid 1px #021572;
+        width: 150%;
+        height: 2rem;
+        background-color: #ffffff;
+        margin-bottom: 1rem;
+    }
+    #mySearchButton {
+        width: 100%;
+        font-size: .75rem;
+    }
+
+    button.col.s12.m3.btn {
+        width: 100%;
+        font-size: .75rem;
+    }
+
+    .parent {
+        margin: -2rem;
+    }
+    #coinDataContainer {
+        padding: 2rem;
+        width: 75%;
+    }
+
+    #tweetContainer {
+        width: 95%;
+        margin: 0rem;
+    }
+
+    .card-image img {
+        visibility: hidden;
+    }
+
+    .card-image h4 {
+        font-size: 2rem;
+    }
+
+    .card-stacked.block {
+        font-size: 1rem;
+    }
 }
+
 
 @media screen and (max-width: 500px) {
     .cr {
         flex-basis: 50%;
     }
+
 }
