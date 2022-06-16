@@ -27,6 +27,7 @@ main {
 /* HEADER/SEARCH STYLING START */
 .row.section {
     display: flex;
+    align-items: center;
 }
 header {
     padding-left: 3rem;
