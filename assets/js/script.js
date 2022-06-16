@@ -155,7 +155,7 @@ function start() { // lets get this shit started frfr
     searchFormEl.submit(searchInput)
     tempArr = JSON.parse(localStorage.getItem("previousSearches"))
     if (tempArr != null) {
-        for (let i = 0; i < tempArr.length; i++) {
+        for (let i = 1; i < tempArr.length; i++) {
             dispSearchHist(tempArr[i], true);
         }
     }
